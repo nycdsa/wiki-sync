@@ -47,6 +47,12 @@ wiki-sync pull working-groups \
 
 `wiki-data` is a **backup snapshot** in git, not guaranteed live wiki. If the JSON must match production, refresh your local `data/` (e.g. `git pull` in wiki-data) and re-run `wiki-sync`.
 
+## Baseline file (`config/working-groups-baseline.json`)
+
+Many wiki pages still show **unresolved Struct placeholders** in the raw text (e.g. `{{$working_groups.email}}`). The live site and Windmill resolve those; a plain file export does not.
+
+This repo ships a **baseline** JSON (last known-good `working-groups` export). When you run `pull working-groups`, wiki text is parsed first, then baseline fields fill gaps: **display names**, **hero `imageUrl`s**, emails, CTAs, etc. To refresh that baseline after you intentionally change production JSON, replace `config/working-groups-baseline.json` with the new canonical file and commit.
+
 ## Develop
 
 ```bash

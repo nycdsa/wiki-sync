@@ -1,15 +1,19 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { WorkingGroupCard, WorkingGroupsResponse } from "../types.js";
 import { jsonRpcCall } from "../wikiClient.js";
 
 type StructRow = Record<string, string>;
+
+const repoRoot = path.join(fileURLToPath(new URL(".", import.meta.url)), "..", "..");
 
 export async function buildWorkingGroupsPayload(args: {
   host: string;
   token?: string;
   wikiDataRoot: string;
 }): Promise<WorkingGroupsResponse> {
+  const baselineByPage = await loadBaselineByPageId();
   const groupsFromPages = await readWorkingGroupsFromPages(args.wikiDataRoot);
   const byPageId = new Map(groupsFromPages.map((group) => [group.pageId, group] as const));
 
@@ -20,15 +24,28 @@ export async function buildWorkingGroupsPayload(args: {
     const existing = byPageId.get(pageId);
     if (!existing) continue;
 
-    existing.status = firstNonEmpty(row.status, existing.status);
-    existing.email = firstNonEmpty(row.email, existing.email);
-    existing.website = firstNonEmpty(row.website, existing.website);
-    existing.linktree = firstNonEmpty(row.linktree, existing.linktree);
-    existing.instagram = firstNonEmpty(row.instagram, existing.instagram);
-    if (!existing.primaryCta && row.action_network_form) {
-      existing.primaryCta = { url: row.action_network_form, label: "Join Us" };
+    existing.status = firstNonEmpty(nonPlaceholder(row.status), existing.status);
+    existing.email = firstNonEmpty(nonPlaceholder(row.email), existing.email);
+    existing.website = firstNonEmpty(nonPlaceholder(row.website), existing.website);
+    existing.linktree = firstNonEmpty(nonPlaceholder(row.linktree), existing.linktree);
+    existing.instagram = firstNonEmpty(nonPlaceholder(row.instagram), existing.instagram);
+    const form = nonPlaceholder(row.action_network_form);
+    if (!existing.primaryCta && form) {
+      existing.primaryCta = { url: normalizeDokuWikiLink(form), label: "Join Us" };
     }
     existing.secondaryCtas = buildSecondaryCtas(existing.website, existing.linktree, existing.instagram);
+  }
+
+  for (const card of byPageId.values()) {
+    sanitizeWorkingGroupCard(card);
+    const baseline = baselineByPage.get(card.pageId);
+    if (baseline) {
+      mergeBaseline(card, baseline);
+    }
+    card.secondaryCtas = buildSecondaryCtas(card.website, card.linktree, card.instagram);
+    if (card.secondaryCtas.length === 0 && baselineByPage.get(card.pageId)?.secondaryCtas?.length) {
+      card.secondaryCtas = baselineByPage.get(card.pageId)!.secondaryCtas;
+    }
   }
 
   const groups = [...byPageId.values()].sort((a, b) => a.name.localeCompare(b.name));
@@ -37,6 +54,111 @@ export async function buildWorkingGroupsPayload(args: {
     fetchedAt: new Date().toISOString(),
     groups,
   };
+}
+
+async function loadBaselineByPageId(): Promise<Map<string, WorkingGroupCard>> {
+  const baselinePath = path.join(repoRoot, "config", "working-groups-baseline.json");
+  try {
+    const raw = await fs.readFile(baselinePath, "utf8");
+    const data = JSON.parse(raw) as WorkingGroupsResponse;
+    if (!Array.isArray(data.groups)) return new Map();
+    return new Map(data.groups.map((g) => [g.pageId, g] as const));
+  } catch {
+    return new Map();
+  }
+}
+
+function mergeBaseline(card: WorkingGroupCard, base: WorkingGroupCard): void {
+  card.name = base.name;
+  card.imageUrl = base.imageUrl;
+
+  if (isBadScalar(card.email) || !looksLikeEmail(card.email)) {
+    card.email = base.email;
+  }
+  if (isBadScalar(card.website)) card.website = base.website;
+  if (isBadScalar(card.linktree)) card.linktree = base.linktree;
+  if (isBadScalar(card.instagram)) card.instagram = base.instagram;
+  if (isBadScalar(card.status)) card.status = base.status;
+
+  const wikiDesc = stripStructPlaceholders(card.description).trim();
+  card.description = wikiDesc || base.description;
+
+  const wikiPrimary = card.primaryCta?.url ?? "";
+  if (isBadScalar(wikiPrimary) || isPlaceholder(wikiPrimary)) {
+    card.primaryCta = base.primaryCta;
+  } else {
+    const label = card.primaryCta?.label?.trim() || base.primaryCta?.label || "Join Us";
+    card.primaryCta = {
+      url: normalizeDokuWikiLink(wikiPrimary),
+      label,
+    };
+  }
+}
+
+function sanitizeWorkingGroupCard(card: WorkingGroupCard): void {
+  card.name = stripStructPlaceholders(card.name).trim() || card.pageId;
+  card.description = stripStructPlaceholders(card.description);
+  card.email = normalizeDokuWikiLink(stripStructPlaceholders(card.email));
+  card.website = normalizeDokuWikiLink(stripStructPlaceholders(card.website));
+  card.linktree = normalizeDokuWikiLink(stripStructPlaceholders(card.linktree));
+  card.instagram = stripStructPlaceholders(card.instagram);
+  if (card.website === "N/A") card.website = "";
+  if (card.linktree === "N/A") card.linktree = "";
+  if (card.email === "N/A") card.email = "";
+
+  if (card.primaryCta?.url) {
+    const u = normalizeDokuWikiLink(stripStructPlaceholders(card.primaryCta.url));
+    if (isBadScalar(u) || isPlaceholder(u)) {
+      card.primaryCta = null;
+    } else {
+      card.primaryCta = { ...card.primaryCta, url: u };
+    }
+  }
+
+  card.secondaryCtas = card.secondaryCtas
+    .map((c) => ({
+      label: c.label,
+      url: normalizeDokuWikiLink(stripStructPlaceholders(c.url)),
+    }))
+    .filter((c) => c.url && !isPlaceholder(c.url));
+}
+
+export function isPlaceholder(value: string | undefined | null): boolean {
+  if (!value) return false;
+  return value.includes("{{$working_groups.") || value.includes("{{$working_groups}");
+}
+
+export function stripStructPlaceholders(value: string): string {
+  return value
+    .replace(/\{\{\$working_groups\.[^}]+\}\}/g, "")
+    .replace(/\*\*\s*\*\*/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function nonPlaceholder(value: string | undefined): string {
+  const v = value?.trim() ?? "";
+  if (!v || isPlaceholder(v)) return "";
+  return v;
+}
+
+function isBadScalar(value: string | undefined | null): boolean {
+  if (value === undefined || value === null) return true;
+  const v = value.trim();
+  return v === "" || v === "N/A" || isPlaceholder(v);
+}
+
+function looksLikeEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
+/** DokuWiki `[[https://x|y]]` or `[[https://x]]` in contact bullets. */
+export function normalizeDokuWikiLink(raw: string): string {
+  let s = raw.trim();
+  if (!s || s === "N/A") return "";
+  const m = s.match(/^\[\[([^\]|]+)(?:\|[^\]]*)?\]\]\s*$/);
+  if (m) return m[1].trim();
+  return s;
 }
 
 async function tryStructAggregation(host: string, token?: string): Promise<StructRow[]> {
@@ -104,18 +226,37 @@ async function collectStartFiles(dir: string): Promise<string[]> {
   return out;
 }
 
+function extractTitle(text: string, pageId: string): string {
+  const wiki = text.match(/^=+\s*(.*?)\s*=+/m);
+  if (wiki?.[1]?.trim()) return wiki[1].trim();
+  const md = text.match(/^#\s+(.+)$/m);
+  if (md?.[1]?.trim()) return md[1].trim();
+  return pageId;
+}
+
 function parseWorkingGroupPage(pageId: string, text: string): WorkingGroupCard {
-  const name = (text.match(/^=+\s*(.*?)\s*=+/m)?.[1] ?? pageId).trim();
+  const name = extractTitle(text, pageId);
   const description = extractDescription(text);
-  const email = extractBulletField(text, "Primary contact email");
-  const intake = extractBulletField(text, "Intake form");
-  const website = extractBulletField(text, "Website");
-  const linktree = extractBulletField(text, "Linktree");
+  let email = extractBulletField(text, "Primary contact email");
+  let intake = extractBulletField(text, "Intake form");
+  let website = extractBulletField(text, "Website");
+  let linktree = extractBulletField(text, "Linktree");
   const instagramRaw = extractBulletField(text, "Socials");
+  email = normalizeDokuWikiLink(email);
+  intake = normalizeDokuWikiLink(intake);
+  website = normalizeDokuWikiLink(website);
+  linktree = normalizeDokuWikiLink(linktree);
   const instagram = normalizeInstagram(instagramRaw);
   const imageUrl = null;
 
-  const primaryCta = intake ? { url: intake, label: "Join Us" } : website ? { url: website, label: "Our Website" } : null;
+  let primaryCta: WorkingGroupCard["primaryCta"];
+  if (intake && !isPlaceholder(intake)) {
+    primaryCta = { url: intake, label: "Join Us" };
+  } else if (website && !isPlaceholder(website) && website !== "N/A") {
+    primaryCta = { url: website, label: "Our Website" };
+  } else {
+    primaryCta = null;
+  }
 
   return {
     pageId,
@@ -123,12 +264,12 @@ function parseWorkingGroupPage(pageId: string, text: string): WorkingGroupCard {
     description,
     status: "active",
     email,
-    website,
-    linktree,
+    website: website === "N/A" ? "" : website,
+    linktree: linktree === "N/A" ? "" : linktree,
     instagram,
     imageUrl,
     primaryCta,
-    secondaryCtas: buildSecondaryCtas(website, linktree, instagram),
+    secondaryCtas: buildSecondaryCtas(website === "N/A" ? "" : website, linktree === "N/A" ? "" : linktree, instagram),
   };
 }
 
@@ -139,10 +280,11 @@ function extractDescription(text: string): string {
   for (const line of lines) {
     if (!line) continue;
     if (line.startsWith("=") || line.startsWith("<") || line.startsWith("{{") || line.startsWith("//")) continue;
+    if (line.startsWith("#")) continue;
     if (line.includes("{{$working_groups.")) continue;
     paragraphs.push(line);
   }
-  return (paragraphs[0] ?? "").replaceAll("—", "-");
+  return stripStructPlaceholders((paragraphs[0] ?? "").replaceAll("—", "-"));
 }
 
 /**

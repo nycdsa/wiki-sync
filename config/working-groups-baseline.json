@@ -1,0 +1,599 @@
+{
+  "version": 1,
+  "fetchedAt": "2026-05-05T13:46:00.000Z",
+  "groups": [
+    {
+      "pageId": "working_groups:afrosocialist_caucus:start",
+      "name": "AfroSoc",
+      "description": "The Afrosocialist Caucus (AfroSoc) is an affinity space for Black, Indigenous, and other people of color who identify as socialists. Membership is not limited to DSA members-any POC socialist or socialist-curious person is welcome. The caucus is intentionally non-ideological, centering community, mutual support, collective learning, and the lived experiences of BIPOC organizers navigating a majority-white organization.",
+      "status": "active",
+      "email": "",
+      "website": "https://afrosocnyc.carrd.co",
+      "linktree": "https://afrosocnyc.carrd.co",
+      "instagram": "afrosocnyc",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/join-nyc-afrosocialists-and-socialist-of-color-email-list",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://afrosocnyc.carrd.co",
+          "label": "Website"
+        },
+        {
+          "url": "https://afrosocnyc.carrd.co",
+          "label": "Linktree"
+        },
+        {
+          "url": "https://instagram.com/afrosocnyc",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:anti-war:start",
+      "name": "Anti-War",
+      "description": "The Anti-War Working Group (AWWG) is the home of anti-imperialist organizing in NYC-DSA. Most recently the working group has focused on organizing against the genocide in Gaza, while also supporting campaigns against U.S. militarism abroad, such as partnering with Filipino organizations resisting U.S. military exercises and organizing around the Not On Our Dime bill in Albany to remove non-profit status for groups fundraising to support settlements in the West Bank.",
+      "status": "active",
+      "email": "antiwar@socialists.nyc",
+      "website": "https://actionnetwork.org/groups/anti-war-working-group",
+      "linktree": "https://linktr.ee/dsaantiwar",
+      "instagram": "@nycdsaantiwar",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/housing-edited-2.jpeg",
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/join-the-nyc-dsa-anti-war-working-group-network/",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://actionnetwork.org/groups/anti-war-working-group",
+          "label": "Website"
+        },
+        {
+          "url": "https://linktr.ee/dsaantiwar",
+          "label": "Linktree"
+        },
+        {
+          "url": "https://instagram.com/nycdsaantiwar",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:cbk_csc:start",
+      "name": "Central Brooklyn Community Solidarity Committee (CBK CSC)",
+      "description": "The Central Brooklyn Community Solidarity Committee builds deep, long-term relationships between NYC-DSA and community organizations in Central Brooklyn. Its work centers the needs and goals of existing community groups-especially those rooted in long-term, low- and middle-income communities-rather than approaching them through a \"wins\" or electoral lens.",
+      "status": "active",
+      "email": "",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://docs.google.com/forms/d/1W1qD2OMWYZWqUTa-AXUFRRJRY4Hdg_-HA2gYBtA0fzo/edit",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:political_education:start",
+      "name": "Citywide Political Education Working Group",
+      "description": "",
+      "status": "active",
+      "email": "political.education@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/citywide-political-eudcation-committee-interest-form?source=nycdsa_wiki&",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:comrades_with_kids:start",
+      "name": "Comrades with Kids",
+      "description": "Comrades with Kids (CWK) is a community of caregivers and NYC-DSA members organizing so kids and families can thrive. The group makes DSA and leftist activism more accessible for parents and caregivers, and organizes around family-centered issues through working groups (Safer Streets / Kids Over Cars; Education / CEC participation & countering PLACE/Moms for Liberty; Universal Childcare). CWK also acts as a support space and sounding board for parents navigating the challenges of raising kids under capitalism.",
+      "status": "active",
+      "email": "cwk@socialists.nyc",
+      "website": "http://socialists.nyc/cwk",
+      "linktree": "",
+      "instagram": "http://instagram.com/comradeswkids",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/11/Childcare-1024x577.jpg",
+      "primaryCta": {
+        "url": "https://socialists.nyc/cwk",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "http://socialists.nyc/cwk",
+          "label": "Website"
+        },
+        {
+          "url": "http://instagram.com/comradeswkids",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:debt_finance:start",
+      "name": "Debt & Finance",
+      "description": "",
+      "status": "",
+      "email": "debtors@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": null,
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:democracy:start",
+      "name": "Democracy Working Group",
+      "description": "Democratize New York! organizes for reforms that expand democratic participation for everyday New Yorkers. This includes electoral reforms that break long-standing anti-democratic barriers in the U.S., as well as structural changes that support more direct democratic control of city government. The group currently operates through two subcommittees: **Direct Democracy** and **Proportional Representation**.",
+      "status": "active",
+      "email": "democracywg@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2024/10/nyc-dsa-101-768x1024.webp",
+      "primaryCta": null,
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:ecosocialist:start",
+      "name": "Ecosocialist Working Group",
+      "description": "The Ecosocialist Working Group stopped a multi-billion-dollar corporation from building a new fossil fuel plant in Astoria. We passed what Alexandria Ocasio-Cortez called the \"most ambitious pieces of climate legislation in [New York's] history,\" the Build Public Renewables Act. We're not done yet.",
+      "status": "active",
+      "email": "climate@socialists.nyc",
+      "website": "https://ecosocialists.nyc/",
+      "linktree": "",
+      "instagram": "https://instagram.com/nycdsaecosoc",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/image-edited.png",
+      "primaryCta": {
+        "url": "https://ecosocialists.nyc/",
+        "label": "Our Website"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://instagram.com/nycdsaecosoc",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:electoral:start",
+      "name": "Electoral",
+      "description": "The Electoral Working Group is Focused on recruiting and socialist candidates for local office, and building a field program to support them. They also develop resources that explain how local and state government work.",
+      "status": "active",
+      "email": "electoral@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "https://instagram.com/dsaforthemany",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/electoral-edited-2.png",
+      "primaryCta": null,
+      "secondaryCtas": [
+        {
+          "url": "https://instagram.com/dsaforthemany",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:ewoc:start",
+      "name": "Emergency Workplace Organizing Committee",
+      "description": "",
+      "status": "active",
+      "email": "",
+      "website": "https://workerorganizing.org/",
+      "linktree": "https://linktr.ee/organizeworkers",
+      "instagram": "https://www.instagram.com/organizeworkers/",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://actionnetwork.org/groups/emergency-workplace-organizing-committee",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://workerorganizing.org/",
+          "label": "Website"
+        },
+        {
+          "url": "https://linktr.ee/organizeworkers",
+          "label": "Linktree"
+        },
+        {
+          "url": "https://www.instagram.com/organizeworkers/",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:electoral:research_and_data:start",
+      "name": "EWG Research & Data Team",
+      "description": "The Research & Data Team supports NYC-DSA's electoral work by providing district analysis, candidate research, data tools, and strategic assessments to help the Electoral Working Group (EWG) make informed decisions. The team blends qualitative and quantitative research, develops mapping and modeling tools, assists with field operations infrastructure, and maintains internal data resources from past races.",
+      "status": "active",
+      "email": "",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://docs.google.com/forms/d/14SLKM1zRpsHHq6ywMGOJKk4_bgR4jJD52mrkJk4MK7w/viewform?edit_requested=true",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:healthcare:start",
+      "name": "Healthcare Working Group",
+      "description": "The Healthcare Working Group is organizing for a universal single-payer system that prioritizes the health of working-class Americans over the profits of insurance companies and their billionaire executives. We aim to take on these moneyed interests by reaching out to people not already politically engaged in order to build a mass movement capable of replacing our inhumane for-profit system with a system that works for all of us. We believe that a single payer health care system is an essential step to achieving healthcare justice in our country.",
+      "status": "active",
+      "email": "healthcare@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSde3XAZNmkL--6LUaODdJQydqZ3lRy56sUPizb8RiRzWj099Q/viewform",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:housing:start",
+      "name": "Housing",
+      "description": "",
+      "status": "disbanded",
+      "email": "",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": null,
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:immigrant_justice:start",
+      "name": "Immigrant Justice",
+      "description": "The Immigrant Justice Working Group (IJWG) organizes to defend the dignity, safety, and liberation of immigrants in New York City. The group works toward an ICE-free New York and fights the systems-militarized borders, racist immigration laws, and the prison-industrial complex-that criminalize, surveil, and exploit immigrant communities. Much of IJWG's work functions in a mutual-aid capacity: supporting coalition partners, showing up in solidarity, providing accompaniment, and responding to real-time crises.",
+      "status": "active",
+      "email": "immigrant.justice@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "https://www.instagram.com/immigrant.justice.nycdsa/",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/immigrationjustice-edited-3.png",
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/organize-with-the-nyc-dsa-immigrant-justice-working-group",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://www.instagram.com/immigrant.justice.nycdsa/",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:labor:start",
+      "name": "Labor",
+      "description": "The Labor Working Group works with labor unions and rank and file union workers to make existing unions more democratic, help create new unions, and support striking workers to build worker power.",
+      "status": "active",
+      "email": "labor@socialists.nyc",
+      "website": "https://labor.dsausa.org/",
+      "linktree": "https://linktr.ee/nycdsalabor?utm_source=linktree_profile_share&ltsid=724292b1-e0a7-43ac-9bd3-d9320ddd7fc5",
+      "instagram": "https://instagram.com/nycdsalabor",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/PXL_20231221_225713567-edited-scaled.jpg",
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/nyc-dsa-labor-sign-up?source=linktree",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://labor.dsausa.org/",
+          "label": "Website"
+        },
+        {
+          "url": "https://linktr.ee/nycdsalabor?utm_source=linktree_profile_share&ltsid=724292b1-e0a7-43ac-9bd3-d9320ddd7fc5",
+          "label": "Linktree"
+        },
+        {
+          "url": "https://instagram.com/nycdsalabor",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:labor_and_strike_solidarity:start",
+      "name": "Labor and Strike Solidarity",
+      "description": "",
+      "status": "",
+      "email": "strike.solidarity@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": null,
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:latinos_socialistas:start",
+      "name": "Latinos Socialistas",
+      "description": "",
+      "status": "",
+      "email": "latsoc@socialists.nyc",
+      "website": "",
+      "linktree": "https://linktr.ee/latsoc",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://linktr.ee/latsoc",
+        "label": "Our Website"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:media:start",
+      "name": "Media",
+      "description": "",
+      "status": "",
+      "email": "media@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": null,
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:nbk_csc:start",
+      "name": "North Brooklyn Community Solidarity Committee (NBK CSC)",
+      "description": "",
+      "status": "active",
+      "email": "nbkdsa.solidarity@gmail.com",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeV1g2ux_GZrWgor23TSsljaufbBmmbQOmqr6kIGcDK_VWoOg/viewform",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:queens_csc:start",
+      "name": "Queens Community Solidarity Committee",
+      "description": "The Queens Community Solidarity Committee builds relationships between NYC-DSA and community organizations across Queens-especially outside of Western Queens. QCSC partners on local events and projects based on what community groups say they need, creating opportunities for rank-and-file members to participate in low-lift, high-impact work. The aim is to deepen DSA's presence in neighborhoods where the chapter has had less of a footprint and to meet communities where they already organize.",
+      "status": "active",
+      "email": "",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/join-the-queens-dsa-community-solidarity-committee",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:racial_justice:start",
+      "name": "Racial Justice",
+      "description": "The Racial Justice Working Group focuses on deepening our understanding of the history of racism and advancing work such as police abolitionism.",
+      "status": "active",
+      "email": "racial.justice@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "https://instagram.com/nycdsaracialjustice",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/racialjustice-edited-1.jpeg",
+      "primaryCta": null,
+      "secondaryCtas": [
+        {
+          "url": "https://instagram.com/nycdsaracialjustice",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:red_rabbits:start",
+      "name": "Red Rabbits",
+      "description": "",
+      "status": "active",
+      "email": "marshals@socialists.nyc",
+      "website": "https://socialists.nyc/protest-safety/",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://socialists.nyc/protest-safety/",
+        "label": "Our Website"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:red_sprouts:start",
+      "name": "Red Sprouts",
+      "description": "",
+      "status": "active",
+      "email": "redsprouts@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://actionnetwork.org/groups/red-sprouts",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:religious_socialism:start",
+      "name": "Religious Socialism",
+      "description": "",
+      "status": "active",
+      "email": "religious.socialism@socialists.nyc",
+      "website": "https://www.religioussocialism.org/about",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://docs.google.com/forms/d/1uVkz12Y1XgSvHJw7gMxjHH4ZK1qMYDVJ9Dj94eFrSKA/viewform?edit_requested=true",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://www.religioussocialism.org/about",
+          "label": "Website"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:sing_in_solidarity:start",
+      "name": "Sing in Solidarity",
+      "description": "Sing in Solidarity is NYC DSA's socialist choir. It is a no-audition group open to all skill levels, providing a welcoming cultural space within the organization. The choir performs music from the international left, including songs from socialist, labor, and liberation struggles across many cultures and languages. It models DSA's \"big tent\" approach by bringing together members from different caucuses and tendencies, offering a space for radical joy, community, and cultural enrichment that deepens members' commitment to DSA while helping to prevent burnout.",
+      "status": "active",
+      "email": "nycdsachoir@gmail.com",
+      "website": "https://singinsolidarity.home.blog/",
+      "linktree": "",
+      "instagram": "nycdsachoir",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://singinsolidarity.home.blog/contact/",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://singinsolidarity.home.blog/",
+          "label": "Website"
+        },
+        {
+          "url": "https://instagram.com/nycdsachoir",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:socialist_feminist:start",
+      "name": "Socialist Feminist",
+      "description": "The Socialist Feminist Working Group is organizing for a world free from gender oppression, racism, imperialism, and capitalism. Grounded in reproductive justice and intersectional feminism, we create space for women, trans, and non-binary people in leftist movements, run mutual aid projects like Plan B distribution, and build the political education needed to bring a feminist lens into every corner of DSA.",
+      "status": "active",
+      "email": "socfem.oc@gmail.com",
+      "website": "https://www.nycdsasocfem.org/",
+      "linktree": "",
+      "instagram": "@nycdsa_socfem",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/socialistfeminism-edited-1.jpeg",
+      "primaryCta": {
+        "url": "https://www.nycdsasocfem.org/",
+        "label": "Our Website"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://instagram.com/nycdsa_socfem",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:tech_action:start",
+      "name": "Tech Action",
+      "description": "The Tech Action Working Group develops a socialist perspective on the use of technology and strategies to resist the Big Tech's hegemony in politics, economics, and culture.",
+      "status": "active",
+      "email": "tech.action@socialists.nyc",
+      "website": "https://techaction.nyc/",
+      "linktree": "https://linktr.ee/nycdsatechaction?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnwL-0hqJNOqmOwHnhhUodUBYCSsgfmFLHOzRARfqseNyxuP5J7UoBj1IYmwQ_aem_FYqWuGu_E5wlCOmActCIpQ",
+      "instagram": "nycdsatechaction",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/techaction-edited.jpeg",
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/tech-action-sign-up-form?source=direct_link&",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://techaction.nyc/",
+          "label": "Website"
+        },
+        {
+          "url": "https://linktr.ee/nycdsatechaction?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnwL-0hqJNOqmOwHnhhUodUBYCSsgfmFLHOzRARfqseNyxuP5J7UoBj1IYmwQ_aem_FYqWuGu_E5wlCOmActCIpQ",
+          "label": "Linktree"
+        },
+        {
+          "url": "https://instagram.com/nycdsatechaction",
+          "label": "Instagram"
+        }
+      ]
+    },
+    {
+      "pageId": "working_groups:tenant_organizing:start",
+      "name": "Tenant Organizing Working Group (TOWG)",
+      "description": "",
+      "status": "active",
+      "email": "tenants@socialists.nyc",
+      "website": "",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/04/housing-edited-2.jpeg",
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/join-the-tenant-organizing-working-group",
+        "label": "Join Us"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:the_local:start",
+      "name": "The Local",
+      "description": "*The Local* is a bi-weekly labor newsletter produced by the NYC-DSA Labor Working Group. Modeled on Jonah Furman's national labor newsletter, it aggregates updates on NLRB elections, contract fights, strikes, organizing campaigns, and union activity across New York City.   It serves as a quick, reliable resource for DSA members, rank-and-file union activists, staffers, journalists, and labor leaders.",
+      "status": "active",
+      "email": "",
+      "website": "https://thenyclocal.substack.com/",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://thenyclocal.substack.com/",
+        "label": "Our Website"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:the_thorn:start",
+      "name": "The Thorn",
+      "description": "",
+      "status": "",
+      "email": "johndavid.schneider@gmail.com",
+      "website": "https://thethornnyc.substack.com",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": null,
+      "primaryCta": {
+        "url": "https://thethornnyc.substack.com",
+        "label": "Our Website"
+      },
+      "secondaryCtas": []
+    },
+    {
+      "pageId": "working_groups:trans_rights_and_bodily_autonomy:start",
+      "name": "Trans Rights and Bodily Autonomy",
+      "description": "The Trans Rights & Bodily Autonomy Working Group (TRBA) is the chapter's primary home for organizing mass, visible, high-impact actions in defense of trans people and bodily autonomy. TRBA leads rallies, marches, teach-ins, and electoral engagement around trans justice, while also building a large, energized community across New York City.",
+      "status": "active",
+      "email": "trba@socialists.nyc",
+      "website": "https://actionnetwork.org/groups/trans-rights",
+      "linktree": "",
+      "instagram": "",
+      "imageUrl": "https://socialists.nyc/wp-content/uploads/2025/07/image.png",
+      "primaryCta": {
+        "url": "https://actionnetwork.org/forms/nyc-dsa-trans-rights-onboarding?source=wg-page",
+        "label": "Join Us"
+      },
+      "secondaryCtas": [
+        {
+          "url": "https://actionnetwork.org/groups/trans-rights",
+          "label": "Website"
+        }
+      ]
+    }
+  ]
+}

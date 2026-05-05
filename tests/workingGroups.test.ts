@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { extractBulletField } from "../src/useCases/workingGroups.js";
+import {
+  extractBulletField,
+  normalizeDokuWikiLink,
+  stripStructPlaceholders,
+  isPlaceholder,
+} from "../src/useCases/workingGroups.js";
 
 describe("extractBulletField", () => {
   it("reads * **Label:** value lines", () => {
@@ -15,5 +20,21 @@ describe("extractBulletField", () => {
     );
     expect(extractBulletField(text, "Website")).toBe("https://afrosocnyc.carrd.co");
     expect(extractBulletField(text, "Socials")).toBe("afrosocnyc");
+  });
+});
+
+describe("wiki placeholders and links", () => {
+  it("detects unresolved struct placeholders", () => {
+    expect(isPlaceholder("{{$working_groups.email}}")).toBe(true);
+    expect(isPlaceholder("a@b.co")).toBe(false);
+  });
+
+  it("strips struct placeholders from text", () => {
+    expect(stripStructPlaceholders("Hello {{$working_groups.name}} world")).toBe("Hello world");
+  });
+
+  it("normalizes DokuWiki link syntax", () => {
+    expect(normalizeDokuWikiLink("[[https://example.com/x|label]]")).toBe("https://example.com/x");
+    expect(normalizeDokuWikiLink("[[https://example.com/x]]")).toBe("https://example.com/x");
   });
 });
