@@ -1,0 +1,45 @@
+{
+  "name": "wiki-sync",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CLI to export NYC-DSA wiki data (e.g. working groups) to JSON.",
+  "main": "dist/cli.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nycdsa/wiki-sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nycdsa/wiki-sync/issues"
+  },
+  "homepage": "https://github.com/nycdsa/wiki-sync#readme",
+  "bin": {
+    "wiki-sync": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "dokuwiki",
+    "nyc-dsa",
+    "wiki",
+    "json"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3",
+    "vitest": "^1.6.1"
+  }
+}
