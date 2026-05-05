@@ -107,11 +107,11 @@ async function collectStartFiles(dir: string): Promise<string[]> {
 function parseWorkingGroupPage(pageId: string, text: string): WorkingGroupCard {
   const name = (text.match(/^=+\s*(.*?)\s*=+/m)?.[1] ?? pageId).trim();
   const description = extractDescription(text);
-  const email = extractField(text, /Primary contact email:\s*([^\n*]+)/i);
-  const intake = extractField(text, /Intake form:\s*([^\n*]+)/i);
-  const website = extractField(text, /Website:\s*([^\n*]+)/i);
-  const linktree = extractField(text, /Linktree:\s*([^\n*]+)/i);
-  const instagramRaw = extractField(text, /Socials:\s*([^\n*]+)/i);
+  const email = extractBulletField(text, "Primary contact email");
+  const intake = extractBulletField(text, "Intake form");
+  const website = extractBulletField(text, "Website");
+  const linktree = extractBulletField(text, "Linktree");
+  const instagramRaw = extractBulletField(text, "Socials");
   const instagram = normalizeInstagram(instagramRaw);
   const imageUrl = null;
 
@@ -145,9 +145,40 @@ function extractDescription(text: string): string {
   return (paragraphs[0] ?? "").replaceAll("—", "-");
 }
 
-function extractField(text: string, regex: RegExp): string {
-  const raw = text.match(regex)?.[1]?.trim() ?? "";
-  return raw.replace(/\s+/g, " ");
+/**
+ * Wiki WG pages use list lines like: * **Intake form:**  https://...
+ * Plain `Label: value` also appears in some drafts — handle both.
+ */
+/** Exported for tests — parses `* **Label:** value` contact lines. */
+export function extractBulletField(text: string, label: string): string {
+  const lines = text.split("\n");
+  const labelLower = label.toLowerCase();
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    const listStar = trimmed.match(/^\*\s+\*\*([^*]+):\*\*\s*(.*)$/);
+    if (listStar) {
+      if (listStar[1].trim().toLowerCase() === labelLower) {
+        return normalizeFieldValue(listStar[2]);
+      }
+    }
+  }
+
+  for (const line of lines) {
+    const t = line.trim();
+    const idx = t.indexOf(":");
+    if (idx === -1) continue;
+    const before = t.slice(0, idx).replaceAll("*", "").trim().toLowerCase();
+    if (before.endsWith(labelLower)) {
+      return normalizeFieldValue(t.slice(idx + 1));
+    }
+  }
+
+  return "";
+}
+
+function normalizeFieldValue(raw: string): string {
+  return raw.replace(/\s+/g, " ").trim();
 }
 
 function normalizeInstagram(value: string): string {
